@@ -9,10 +9,11 @@ import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent, XLargeDirective } from './app.component';
+import { LoginFormComponent } from './+login-form/login-form.component';
 
 
 @NgModule({
-  declarations: [ AppComponent, XLargeDirective ],
+  declarations: [ AppComponent, LoginFormComponent, XLargeDirective ],
   imports: [
     SharedModule,
     HomeModule,

@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
+import { LoginFormComponent } from './+login-form/login-form.component';
+
 export function getLazyModule() {
   return System.import('./+lazy/lazy.module' + (process.env.AOT ? '.ngfactory' : ''))
     .then(mod => mod[(process.env.AOT ? 'LazyModuleNgFactory' : 'LazyModule')]);
@@ -9,7 +11,8 @@ export function getLazyModule() {
 @NgModule({
   imports: [
     RouterModule.forChild([
-      { path: '', redirectTo: '/home', pathMatch: 'full' },
+      { path: 'log-in', component: LoginFormComponent },
+      { path: '', redirectTo: '/log-in', pathMatch: 'full' },
       { path: 'lazy', loadChildren: getLazyModule }
     ])
   ],
