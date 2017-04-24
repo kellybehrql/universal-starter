@@ -1,0 +1,50 @@
+<div class="form-group">
+  <img src="src/assets/logo/rocket-loans.png" class="center-block img-responsive" width="400" height="125"><br>
+
+  <div class="btn-group btn-group-justified">
+    <div class="btn-group">
+      <button type="submit" class="btn btn-primary"><h4 class="text-center">Sign In</h4></button>
+    </div>
+    <div class="btn-group">
+      <button type="submit" class="btn btn-default "><h4 class="text-center">Create</h4></button>
+    </div>
+  </div>
+
+</div>
+<br>
+<form #bookForm="ngForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" required minlength="5" maxlength="30" [(ngModel)]="model.username" name="username" #username="ngModel">
+    <div *ngIf="username.errors && (username.dirty || username.touched)" class="text-danger">
+      <div [hidden]="!username.errors.required">Username is Required.</div>
+      <div [hidden]="!username.errors.minlength">Username Must be at Least 5 Characters Long.</div>
+      <div [hidden]="!username.errors.maxlength">Username Cannot be More than 30 Characters Long.</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="text" class="form-control" id="password" required [(ngModel)]="model.password" name="password" #password="ngModel">
+    <div *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
+      <div [hidden]="!password.errors.required">Password is Required.</div>
+    </div>
+  </div><br>
+  <button type="submit" [disabled]="!bookForm.form.valid" class="btn btn-success btn-block">Sign In</button><br>
+  <p class="form-text"><a routerLink="/reset-password">Having trouble signing in?</a></p>
+</form>
+
+<!--<div><br>-->
+  <!--<b>Payload:</b>-->
+  <!--{{currentLogin}}-->
+<!--</div>-->
+
+<!--<div><br>-->
+  <!--<b>Post:</b>-->
+  <!--{{postData}}-->
+<!--</div>-->
+
+<!--<div><br>-->
+  <!--<b>Get: </b>{{getData}}<br><br>-->
+  <!--<button (click)="onTestGet()">Get Request</button><br>-->
+
+<!--</div>-->
